@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Be Nowhere Else · Lucas Settineri</title>
+<meta name="description" content="Life coaching, wellness breakouts and retreats, and guided meditation with Lucas Settineri.">
+<meta property="og:title" content="Be Nowhere Else">
+<meta property="og:description" content="Life coaching, wellness breakouts and retreats, and guided meditation with Lucas Settineri.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://benowhereelse.com/">
+<meta name="theme-color" content="#ECEAE5">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='26' fill='%23B9B4AB'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;1,6..72,300&family=Hanken+Grotesk:wght@300;400&display=swap">
+<style>
+:root{
+  --bg:#ECEAE5; --ink:#3A3835; --soft:#5A5751; --muted:#8A867E;
+  --rule:#C9C5BD; --circle:#E2DFD8; --intro:#D8D5CE; --hover:#6A6660;
+  --serif:'Newsreader', Georgia, serif; --sans:'Hanken Grotesk', system-ui, sans-serif;
+  --c:min(580px, 68vh, 86vw);
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--ink);text-underline-offset:4px;text-decoration-thickness:1px}
+a:hover,button:hover{color:var(--hover)}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+button:focus-visible,a:focus-visible{outline:1px solid var(--soft);outline-offset:4px}
+.caps{font-size:13px;letter-spacing:.16em;text-transform:uppercase}
+
+/* page */
+.page{min-height:100vh;min-height:100svh;display:grid;grid-template-rows:auto 1fr auto;grid-template-areas:"head" "stage" "foot";padding:36px 56px 32px}
+header{grid-area:head;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;border-bottom:1px solid var(--rule);padding-bottom:20px}
+.brand{display:flex;flex-direction:column;align-items:flex-start;gap:2px}
+.title{font-family:var(--serif);font-size:28px;letter-spacing:.01em;margin:0;font-weight:300}
+.byline{font-family:var(--serif);font-style:italic;font-size:17px;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;text-decoration-color:#9A958C}
+nav{display:flex;gap:28px}
+nav button{min-height:44px}
+.stage{grid-area:stage;position:relative;display:grid;place-items:center;min-height:calc(var(--c) + 40px)}
+.circle{position:absolute;width:var(--c);height:var(--c);border-radius:50%;background:var(--circle);animation:ambient 10s ease-in-out infinite}
+.words{position:relative;width:calc(var(--c) * .72);max-height:calc(var(--c) * .72);overflow-y:auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;padding:4px 0;scrollbar-width:thin;scrollbar-color:var(--rule) transparent}
+.words h1{margin:0;font-family:var(--serif);font-weight:300;font-size:60px;line-height:1.1}
+.words .sub{margin:0;font-family:var(--serif);font-style:italic;font-weight:300;font-size:24px;line-height:1.35;color:var(--soft)}
+.words.home{gap:20px}
+.words h2{margin:0;font-family:var(--serif);font-weight:300;font-size:32px}
+.words .body{margin:0;font-family:var(--serif);font-weight:300;font-size:18px;line-height:1.55}
+.links{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:15px}
+.links a,.links button{display:inline-block;padding:4px 0;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.back{min-height:44px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--soft)}
+.words.leave{animation:soft-out .6s ease-in-out forwards;pointer-events:none}
+.words.enter{animation:soft-in .7s ease-in-out both}
+footer{grid-area:foot;display:flex;justify-content:space-between;align-items:center;gap:16px;color:var(--soft)}
+footer button{min-height:44px}
+.replay{color:var(--muted);font-size:12px}
+
+/* intro */
+.overlay{position:fixed;inset:0;background:var(--bg);display:none;pointer-events:none;z-index:2}
+.overlay .ic{position:absolute;left:50%;top:50%;width:320px;height:320px;margin:-160px 0 0 -160px;border-radius:50%;background:var(--intro)}
+.overlay .bar{position:absolute;left:50%;top:50%;width:160px;height:2px;margin:228px 0 0 -80px;background:var(--intro);overflow:hidden}
+.overlay .bar i{display:block;width:100%;height:100%;background:var(--ink);transform-origin:left center;transform:scaleX(0)}
+.overlay .cue{position:absolute;left:0;right:0;top:50%;height:48px;margin-top:-24px;text-align:center;font-family:var(--serif);font-style:italic;font-size:34px;line-height:48px}
+.overlay .cue span{position:absolute;left:0;right:0;opacity:0}
+.intro .overlay{display:block;animation:away 2s ease 23s forwards}
+.intro .overlay .ic{animation:breathe 10s ease-in-out 0s 2 both}
+.intro .overlay .bar{animation:away .8s ease 20s forwards}
+.intro .overlay .bar i{animation:fill 20s linear both}
+.intro .overlay .in{animation:cue-in 10s ease 0s 2 both}
+.intro .overlay .out{animation:cue-out 10s ease 0s 2 both}
+.intro .overlay .here{animation:cue-here 4s ease 20s both}
+.intro .page{animation:appear 2.5s ease 24s both}
+.intro .circle{animation:ambient 10s ease-in-out 24s infinite}
+
+@keyframes breathe{0%{transform:scale(.55)}40%{transform:scale(1)}100%{transform:scale(.55)}}
+@keyframes cue-in{0%{opacity:0}14%{opacity:1}34%{opacity:1}42%{opacity:0}100%{opacity:0}}
+@keyframes cue-out{0%{opacity:0}42%{opacity:0}54%{opacity:1}88%{opacity:1}100%{opacity:0}}
+@keyframes cue-here{0%{opacity:0}30%{opacity:1}75%{opacity:1}100%{opacity:0}}
+@keyframes away{from{opacity:1}to{opacity:0;visibility:hidden}}
+@keyframes appear{from{opacity:0;visibility:hidden}to{opacity:1;visibility:visible}}
+@keyframes ambient{0%{transform:scale(.95)}40%{transform:scale(1)}100%{transform:scale(.95)}}
+@keyframes fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes soft-in{0%{opacity:0;filter:blur(6px);transform:translateY(6px)}100%{opacity:1;filter:blur(0);transform:translateY(0)}}
+@keyframes soft-out{0%{opacity:1;filter:blur(0);transform:translateY(0)}100%{opacity:0;filter:blur(6px);transform:translateY(-4px)}}
+
+/* phone */
+@media (max-width:719px){
+  :root{--c:min(92vw, 56svh, 420px)}
+  .page{grid-template-rows:auto 1fr auto auto;grid-template-areas:"head" "stage" "nav" "foot";padding:36px 24px 20px}
+  header{display:contents}
+  .brand{grid-area:head;gap:4px;border-bottom:1px solid var(--rule);padding-bottom:18px}
+  .title{font-size:32px;line-height:1.1}
+  .byline{font-size:19px;min-height:32px}
+  .stage{min-height:calc(var(--c) + 32px)}
+  nav{grid-area:nav;display:grid;grid-template-columns:1fr 1fr;column-gap:12px;padding-top:4px}
+  nav button{min-height:52px;text-align:center}
+  .words{width:calc(var(--c) * .76);max-height:calc(var(--c) * .78);gap:12px}
+  .words.home{gap:16px}
+  .words h1{font-size:46px}
+  .words .sub{font-size:22px}
+  .words h2{font-size:27px}
+  .words .body{font-size:17px}
+  .links{gap:2px;font-size:16px}
+  .links a,.links button{padding:8px 0}
+  footer{flex-direction:column;gap:0;padding-top:8px}
+  footer .caps{font-size:11px;letter-spacing:.14em}
+  .overlay .ic{width:300px;height:300px;margin:-150px 0 0 -150px}
+  .overlay .bar{width:140px;margin:210px 0 0 -70px}
+  .overlay .cue{font-size:30px;height:40px;line-height:40px;margin-top:-20px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .circle,.intro .circle{animation:none}
+  .words.leave,.words.enter{animation:none}
+  .replay{display:none}
+}
+</style>
+</head>
+<body>
+<div class="overlay" aria-hidden="true">
+  <div class="ic"></div>
+  <div class="bar"><i></i></div>
+  <div class="cue"><span class="in">breathe in</span><span class="out">breathe out</span><span class="here">You&rsquo;re here.</span></div>
+</div>
+
+<div class="page">
+  <header>
+    <div class="brand">
+      <p class="title">Be Nowhere Else</p>
+      <button type="button" class="byline" data-go="about">by Lucas Settineri</button>
+    </div>
+    <nav aria-label="Sections">
+      <button type="button" class="caps" data-go="coaching">Coaching</button>
+      <button type="button" class="caps" data-go="retreats">Retreats</button>
+      <button type="button" class="caps" data-go="meditations">Meditations</button>
+      <button type="button" class="caps" data-go="contact">Contact me</button>
+    </nav>
+  </header>
+
+  <main class="stage">
+    <div class="circle" aria-hidden="true"></div>
+    <div class="words home" id="words" aria-live="polite"></div>
+  </main>
+
+  <footer>
+    <button type="button" class="caps" data-go="sign">Nothing 4 Sale &middot; Sit &amp; Chat</button>
+    <button type="button" class="caps replay" id="replay">Replay the breaths</button>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var panels = {
+    about: {
+      title: 'Lucas Settineri',
+      body: 'Whether we’ve met or not, welcome. I’ve spent over a decade on my own growth, through therapy, life coaching and spiritual practice, and now I help others on theirs. I lead wellness breakouts for companies and groups, guided meditations, and retreats throughout the year.',
+      links: [{ label: 'Reach out to learn more', go: 'contact' }]
+    },
+    coaching: {
+      title: 'Life coaching',
+      body: 'One-on-one work with a select number of people. This is not therapy or advice giving. It’s being heard, and guided to the answers you need most.',
+      links: [{ label: 'Learn more', go: 'contact' }]
+    },
+    retreats: {
+      title: 'Breakouts & retreats',
+      body: 'Wellness breakouts and retreats for companies and groups, in person and virtually.',
+      links: [{ label: 'Learn more', go: 'contact' }]
+    },
+    meditations: {
+      title: 'Guided meditations',
+      body: 'Live and pre-recorded sessions.',
+      links: [{ label: 'Listen on Insight Timer', href: 'https://insighttimer.com/Lucas-Settineri' }]
+    },
+    contact: {
+      title: 'Contact me',
+      body: 'Reach out to learn more.',
+      links: [
+        { label: 'lucasrsettineri@gmail.com', href: 'mailto:lucasrsettineri@gmail.com' },
+        { label: '(973) 407-0007', href: 'tel:+19734070007' },
+        { label: 'LinkedIn', href: 'https://www.linkedin.com/in/lucassettineri/' }
+      ]
+    },
+    sign: {
+      title: 'Nothing 4 Sale',
+      body: 'Learn more about my project with a sign in the park that says ‘Nothing 4 Sale. Sit & Chat.’',
+      links: [{ label: 'Learn more', href: 'https://nothing4sale.carrd.co/' }]
+    }
+  };
+
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var words = document.getElementById('words');
+  var view = 'home', busy = false, next = null;
+
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+  function now() {
+    return new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+  }
+
+  function fill(k) {
+    words.textContent = '';
+    words.classList.toggle('home', k === 'home');
+    if (k === 'home') {
+      var h = el('h1');
+      h.append('It’s ', el('span', 'time', now()), '.');
+      var s = el('p', 'sub');
+      s.append('And you’re here.', document.createElement('br'), 'Be nowhere else.');
+      words.append(h, s);
+      return;
+    }
+    var p = panels[k];
+    var links = el('div', 'links');
+    p.links.forEach(function (l) {
+      var a;
+      if (l.go) {
+        a = el('button', null, l.label);
+        a.type = 'button';
+        a.setAttribute('data-go', l.go);
+      } else {
+        a = el('a', null, l.label);
+        a.href = l.href;
+        if (/^https?:/.test(l.href)) { a.target = '_blank'; a.rel = 'noopener'; }
+      }
+      links.append(a);
+    });
+    var back = el('button', 'back', 'Back');
+    back.type = 'button';
+    back.setAttribute('data-go', 'home');
+    words.append(el('h2', null, p.title), el('p', 'body', p.body), links, back);
+    words.scrollTop = 0;
+  }
+
+  function go(k) {
+    if (k === view && !busy) return;
+    next = k;
+    if (busy) return;
+    if (reduce) { view = next; fill(view); return; }
+    busy = true;
+    words.classList.remove('enter');
+    words.classList.add('leave');
+    setTimeout(function () {
+      view = next;
+      fill(view);
+      words.classList.remove('leave');
+      void words.offsetWidth;
+      words.classList.add('enter');
+      busy = false;
+    }, 600);
+  }
+
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest('[data-go]');
+    if (t) go(t.getAttribute('data-go'));
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && view !== 'home') go('home');
+  });
+
+  function startIntro() {
+    document.body.classList.remove('intro');
+    void document.body.offsetWidth;
+    document.body.classList.add('intro');
+  }
+  document.getElementById('replay').addEventListener('click', function () {
+    view = 'home'; busy = false; next = null;
+    words.classList.remove('leave', 'enter');
+    fill('home');
+    startIntro();
+  });
+
+  setInterval(function () {
+    var t = words.querySelector('.time');
+    if (t) t.textContent = now();
+  }, 30000);
+
+  fill('home');
+  if (!reduce) startIntro();
+})();
+</script>
+</body>
+</html>
